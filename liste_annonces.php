@@ -1,5 +1,14 @@
 <?php
-require "connexion.php";
+$host = 'localhost';
+$dbname = 'Modex';
+$username = 'root';
+$password = 'root';
+
+$mysqli = mysqli_connect($host, $username, $password, $dbname);
+if (!$mysqli) {
+    die('Erreur de connexion MySQL : ' . mysqli_connect_error());
+}
+mysqli_set_charset($mysqli, 'utf8');
 
 $sql = "SELECT * FROM annonces";
 $result = mysqli_query($mysqli, $sql);
